@@ -80,7 +80,7 @@ platform :ios do
       changelog: "Test POC App",
 #      uses_non_exempt_encryption: true,
       ipa: "./output/gym/neovapoc.ipa",
-      groups: "int_test",
+ #     groups: "int_test",
   #    skip_waiting_for_build_processing: true,
       beta_app_review_info: {
         contact_email: "cloudsupport@neovasolutionss.com",
