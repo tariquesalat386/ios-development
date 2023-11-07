@@ -134,7 +134,6 @@ platform :ios do
     }
 
     deliver(
-      app_version: "1.0",
       name: app_name_path,
       force: true,
       app_identifier: "com.neovasolutions.ios-dev-poc",
