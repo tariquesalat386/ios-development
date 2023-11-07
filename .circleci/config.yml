@@ -1,35 +1,35 @@
-# # .circleci/config.yml
-# version: 2.1
-# jobs:
-#   submit_ios_app_to_app_store:
-#     macos:
-#       xcode: 15.0.0
-#     environment:
-#       FL_OUTPUT_DIR: output
-#     steps:
-#       - checkout
-#       - run:
-#           name: Install Bundle
-#           command: bundle install  
-#       - run: 
-#           name: Update Build Version
-#           command: bundle exec fastlane increment_build_num          
-#       - run: 
-#           name: Setup iOS Certificate And Profile
-#           command: bundle exec fastlane use_cert
-#       - run:
-#           name: Build, Archive And Export App
-#           command: bundle exec fastlane build_release
-#       - store_artifacts:
-#           path: output
-#       - run: 
-#           name: Upload App To TestFlight
-#           command: bundle exec fastlane testflight_internal_test
-#       - run: 
-#           name: Submit iOS App For Review
-#           command: bundle exec fastlane upload_ipa_to_store
+# .circleci/config.yml
+version: 2.1
+jobs:
+  submit_ios_app_to_app_store:
+    macos:
+      xcode: 15.0.0
+    environment:
+      FL_OUTPUT_DIR: output
+    steps:
+      - checkout
+      - run:
+          name: Install Bundle
+          command: bundle install  
+      - run: 
+          name: Update Build Version
+          command: bundle exec fastlane increment_build_num          
+      - run: 
+          name: Setup iOS Certificate And Profile
+          command: bundle exec fastlane use_cert
+      - run:
+          name: Build, Archive And Export App
+          command: bundle exec fastlane build_release
+      - store_artifacts:
+          path: output
+      - run: 
+          name: Upload App To TestFlight
+          command: bundle exec fastlane testflight_internal_test
+      - run: 
+          name: Submit iOS App For Review
+          command: bundle exec fastlane upload_ipa_to_store
 
-# workflows:
-#   build-test-adhoc:
-#     jobs:
-#       - submit_ios_app_to_app_store
+workflows:
+  build-test-adhoc:
+    jobs:
+      - submit_ios_app_to_app_store
