@@ -139,7 +139,7 @@ platform :ios do
       force: true,
       app_identifier: "com.neovasolutions.ios-dev-poc",
       force: true,
-      skip_metadata: false,
+      skip_metadata: true,
       skip_screenshots: true,
       skip_binary_upload: false,
       automatic_release: true ,
