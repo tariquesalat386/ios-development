@@ -6,13 +6,13 @@ platform :ios do
     setup_circle_ci
   end
 
-## Latest CircleCI build version number will be picked for testing
-  lane :increment_build_num do
-    increment_build_number(
-      build_number: "$CIRCLE_BUILD_NUM",
-      xcodeproj: "ios-dev-poc.xcodeproj"
-    )
-  end
+# ## Latest CircleCI build version number will be picked for testing
+#   lane :increment_build_num do
+#     increment_build_number(
+#       build_number: "$CIRCLE_BUILD_NUM",
+#       xcodeproj: "ios-dev-poc.xcodeproj"
+#     )
+#   end
 
 ## This step will search for existing 'Development and App Store Certififcates' in the Apple Developer Account. If found will use those else will create new ones.
   lane :use_cert do

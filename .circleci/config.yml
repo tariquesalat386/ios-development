@@ -30,6 +30,6 @@ jobs:
           command: bundle exec fastlane upload_ipa_to_store
 
 workflows:
-  build-test-adhoc:
+  ios-app-deployment:
     jobs:
       - submit_ios_app_to_app_store

@@ -1,4 +1,4 @@
 # fastlane/Appfile
-apple_id "cloudsupport@neovasolutions.com"
-app_identifier "com.neovasolutions.ios-dev-poc"
-team_id "2ZBVR8AP3W"
+# apple_id "cloudsupport@neovasolutions.com"
+# app_identifier "com.neovasolutions.ios-dev-poc"
+# team_id "2ZBVR8AP3W"
