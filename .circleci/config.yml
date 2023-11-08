@@ -1,7 +1,7 @@
 # .circleci/config.yml
 version: 2.1
 jobs:
-  submit_ios_app_to_app_store:
+  submit_ios_app_to_app_store_only:
     macos:
       xcode: 15.0.0
     environment:
@@ -23,13 +23,10 @@ jobs:
       - store_artifacts:
           path: output
       - run: 
-          name: Upload App To TestFlight
-          command: bundle exec fastlane testflight_internal_test
-      - run: 
           name: Submit iOS App For Review
           command: bundle exec fastlane upload_ipa_to_store
 
 workflows:
   build-test-adhoc:
     jobs:
-      - submit_ios_app_to_app_store
+      - submit_ios_app_to_app_store_only
