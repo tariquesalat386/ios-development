@@ -78,10 +78,7 @@ platform :ios do
       api_key: api_key,
       app_identifier: "com.neovasolutions.ios-dev-poc",
       changelog: "Test POC App",
-#      uses_non_exempt_encryption: true,
       ipa: "./output/gym/neovapoc.ipa",
- #     groups: "int_test",
-  #    skip_waiting_for_build_processing: true,
       beta_app_review_info: {
         contact_email: "cloudsupport@neovasolutionss.com",
         contact_first_name: "Shashi",
@@ -104,57 +101,6 @@ platform :ios do
           whats_new: "Default changelog"
         }
       }
-    )
-  end
-
-## Submit iOS app for review
-  lane :upload_ipa_to_store do
-
-    api_key = app_store_connect_api_key(
-        key_id: "WXYFK8CF5D",
-        issuer_id: "6701bcf4-21c5-4e25-9fd7-76af487a8e20",
-        key_content: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgz8S6G+oCbY+DlpDO44h91CyqPHc1f1hDIvO90XyVyi+gCgYIKoZIzj0DAQehRANCAATRh6sKuK3JunOpDqvb1xdkwZ3kbmiAueV/XaTNdZ/JNlbOW33ikt7yrA9jCDoukR0mqh1PisbBdCXuqJmmAkcC\n-----END PRIVATE KEY-----"
-      )
-
-    privacy_url_path = {
-      "en-US" => {
-        privacy_url: File.read("./metadata/en-US/privacy_url.txt").strip
-      }
-    }
-
-    app_name_path = {
-      "en-US" => {
-        app_name: File.read("./metadata/en-US/name.txt").strip
-      }
-    }
-
-    support_url_path = {
-      "en-US" => {
-        support_url: File.read("./metadata/en-US/support_url.txt").strip
-      }
-    }
-
-    deliver(
-      name: app_name_path,
-      force: true,
-      app_identifier: "com.neovasolutions.ios-dev-poc",
-      force: true,
-      skip_metadata: true,
-      skip_screenshots: true,
-      skip_binary_upload: false,
-      automatic_release: true ,
-      api_key: api_key,
-      precheck_include_in_app_purchases: false,
-      submit_for_review: true,
-      skip_app_version_update: false,
-      submission_information: { 
-        export_compliance_uses_encryption: false,
-        add_id_info_uses_idfa: true,
-        add_id_info_serves_ads: false,
-        add_id_info_tracks_install: true,
-        add_id_info_tracks_action: true,
-        add_id_info_limits_tracking: true
-        }
     )
   end
 end
