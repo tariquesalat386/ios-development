@@ -1,7 +1,7 @@
 # .circleci/config.yml
 version: 2.1
 jobs:
-  submit_ios_app_to_app_store:
+  end_to_end_submission_flow:
     macos:
       xcode: 15.0.0
     environment:
@@ -32,4 +32,4 @@ jobs:
 workflows:
   build-test-adhoc:
     jobs:
-      - submit_ios_app_to_app_store
+      - end_to_end_submission_flow
