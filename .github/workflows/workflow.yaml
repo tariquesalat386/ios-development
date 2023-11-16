@@ -16,24 +16,23 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Add Files For Testing
-        run: |
-          touch file1.txt
-          touch file2.sh
-
       - name: Clone supercharge docs repository
         uses: actions/checkout@v2
         with:
           repository: tariquesalat386/stanley_poc
           ref: testing
-          token: ${{ github.token }}
 
+      - name: Add Files For Testing
+        run: |
+          touch ./git-commit-v1/file1.txt
+          touch ./git-commit-v1/file2.sh
+          
       - name: Commit Changes And Push
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          repository: ./git-commit-v1
+          repository: .
           branch: testing
-          file_pattern: 'file1.txt file2.sh'
+          file_pattern: './git-commit-v1/file1.txt ./git-commit-v1/file2.sh'
           commit_user_name: "tsalat"
           commit_user_email: "tarique.salat@gmail.com"
           commit_author: ${{ github.actor }}
