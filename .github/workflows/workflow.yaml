@@ -18,8 +18,8 @@ jobs:
 
       - name: Add Files For Testing
         run: |
-          touch ./git-commit-v1/file1.txt
-          touch ./git-commit-v1/file2.sh
+          touch file1.txt
+          touch file2.sh
 
       - name: Clone supercharge docs repository
         uses: actions/checkout@v2
@@ -33,7 +33,7 @@ jobs:
         with:
           repository: ./git-commit-v1
           branch: testing
-          file_pattern: './git-commit-v1/file1.txt ./git-commit-v1/file2.sh'
+          file_pattern: 'file1.txt file2.sh'
           commit_user_name: "tsalat"
           commit_user_email: "tarique.salat@gmail.com"
           commit_author: ${{ github.actor }}
