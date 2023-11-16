@@ -22,6 +22,7 @@ jobs:
         with:
           repository: tariquesalat386/stanley_poc
           ref: testing
+          token: ${{ github.token }}
 
       - name: Add Files For Testing
         run: |
